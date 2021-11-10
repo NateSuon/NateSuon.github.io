@@ -4100,6 +4100,7 @@ fieldset:disabled .btn {
 
 .nav-link {
   display: block;
+    position: relative;
   padding: 0.5rem 1rem;
   color: #0d6efd;
   text-decoration: none;
@@ -4115,6 +4116,27 @@ fieldset:disabled .btn {
 .nav-link:focus {
   color: #0a58ca;
 }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
+    height: 0.1em;
+    margin: auto;
+    background-color: #AFA794;
+    opacity: 0;
+    transition: opacity 300ms, transform 400ms;
+}
+.nav-link:hover::after,
+.nav-link:focus::after {
+    opacity: 1;
+    width: 70%;
+    transform: translate3d(0, 0.1em, 0);
+}
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
